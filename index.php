@@ -1,34 +1,55 @@
 <?php
-  // This file's code will execute right here in the file.
-  include './includes/datatypes.php';
-?><!DOCTYPE html>
+
+if (isset ($_Post) && !empty ($_POST)){
+    $submitedItem = $_POST['item-name'];
+}
+
+
+foreach($items as $item){
+ echo $item ['item-name'], '<br>'; 
+ print_r($item);
+}
+
+?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><?php echo $myMessage; // Echo is used for outputting strings. ?></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel= "stylesheet" href="stylesheet.css">
+    <title>To-Do list</title>
 </head>
 <body>
-  <h1><?php echo $myMessage; ?></h1>
-  <?php include './includes/navigation.php'; // We're executing this code right here... the nav will display. ?>
-  <pre>
-    <?php
-      // Var dump is great for seeing what's inside!
-      var_dump( $myOtherArray );
-    ?>
-  </pre>
-  <h2>Concatenated String</h2>
-  <p>
-    <?php echo $concattedString; ?>
-  </p>
-  <h2>Difference Between Single and Double Quoted Strings</h2>
-  <h3>Single Quoted</h3>
-  <p>
-    <?php echo $mySingleQuoteHelloString; ?>
-  </p>
-  <h3>Double Quoted</h3>
-  <p>
-    <?php echo $myDoubleQuoteHelloString; ?>
-  </p>
+    <div class ="list">
+        <h1 class ="header"> To Do </h1>
+        <?php if (!empty($item)):?>
+           
+                <ul class ="items"> 
+                    <?php foreach($items as $item): ?>
+                      
+                        <li>
+                            <span class="item <?php echo $item ['done'] ? 'done': '' ?>"><?php echo $item ['item-name'];?></span>
+                            <?php if (!$item['done']) : ?>
+                                <a href="done.php? as=done & item=<?php echo $item ['id'] ?>" class="done-button"> Mark as done </a>
+                            <?php endif?>  
+                        </li>
+                        <li>
+                            <span class= "item done">PHP To-Do assigment</span> 
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+                <?php else:?>
+                    <p> You haven't added any itemes yet.</p>
+        <?php endif;?>
+        <form class = "item-add" action= "add.php" method= "POST">
+            <input type= "text" name= "item-name" placeholder="Type a new task here." class= "input" autocomplete="off" required>
+            <input type="submit" value= "Add" class= "submit">
+        </form>
+        <pre>
+            <?php var_dump ($_POST);?>
+        </pre>
+    </div>
 </body>
 </html>
