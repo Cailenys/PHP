@@ -1,6 +1,6 @@
 <?php
 
-if (isset ($_Post) && !empty ($_POST)){
+if (isset ($_POST) && !empty ($_POST)){
     $submitedItem = $_POST['item-name'];
 }
 
@@ -36,7 +36,7 @@ foreach($items as $item){
                             <?php endif?>  
                         </li>
                         <li>
-                            <span class= "item done">PHP To-Do assigment</span> 
+                            <span class= "item-done">PHP To-Do assigment</span> 
                         </li>
                     <?php endforeach; ?>
                 </ul>
