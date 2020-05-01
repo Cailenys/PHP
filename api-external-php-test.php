@@ -1,14 +1,10 @@
 <?php
-<<<<<<< HEAD
-$randomUserJSONString = file_get_contents ('http://ramdomuser.me/api/')
-=======
   // Submit a request to the API endpoint.
   $randomUserJSONString = file_get_contents( 'http://randomuser.me/api/' );
   // Convert the response to a PHP object.
   $randomUserObject = json_decode( $randomUserJSONString );
   // Collect the first user in the results array.
   $randomUser = $randomUserObject->results[0];
->>>>>>> 1e69aa1236fc102fe2cde840495de8a2f51725d8
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
