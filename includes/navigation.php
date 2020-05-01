@@ -10,6 +10,10 @@
     <li>
       <a href="./ToDoList.php"> To-Do List</a>
     </li>
+    <li>
+      <a href="./Testing.php"> Testing</a>
+    </li>
+    
   </ul>
   
 </nav>

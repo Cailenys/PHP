@@ -2,13 +2,14 @@
 
 if (isset ($_POST) && !empty ($_POST)){
     $submitedItem = $_POST['item-name'];
+    echo "$submitedItem";
 }
 
 
-foreach($items as $item){
+/*foreach($items as $item){
  echo $item ['item-name'], '<br>'; 
  print_r($item);
-}
+}*/
 
 ?>
 <!DOCTYPE html>
@@ -22,6 +23,7 @@ foreach($items as $item){
     <title>To-Do list</title>
 </head>
 <body>
+    <?php include './includes/navigation.php'; ?>
     <div class ="list">
         <h1 class ="header"> To Do </h1>
         <?php if (!empty($item)):?>
@@ -51,5 +53,6 @@ foreach($items as $item){
             <?php var_dump ($_POST);?>
         </pre>
     </div>
+    
 </body>
 </html>
