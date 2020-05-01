@@ -10,6 +10,9 @@
     <li>
       <a href="./ToDoList.php"> To-Do List</a>
     </li>
+    <li>
+      <a href="./blog.php"> Blog</a>
+    </li>
   </ul>
   
 </nav>
